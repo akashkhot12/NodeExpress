@@ -8,6 +8,12 @@ const server = http.createServer((req,res)=>{
     if (path =='/' || path.toLocaleLowerCase()==='home') {
         res.end("your home page ready")
     }
+    else if(path.toLocaleLowerCase()==='/about'){
+        res.end("your about page is ready")
+    }
+    else if(path.toLocaleLowerCase()==='/constact'){
+        res.end("your contact page is ready")
+    }
 })
 
 server.listen(8000,'127.0.0.1',()=>{

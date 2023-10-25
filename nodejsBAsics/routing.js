@@ -11,7 +11,7 @@ const server = http.createServer((req,res)=>{
     else if(path.toLocaleLowerCase()==='/about'){
         res.end("your about page is ready")
     }
-    else if(path.toLocaleLowerCase()==='/constact'){
+    else if(path.toLocaleLowerCase()==='/contact'){
         res.end("your contact page is ready")
     }
 })

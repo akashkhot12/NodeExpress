@@ -4,8 +4,9 @@ const http = require('http');
 
 //create a server 
 const server = http.createServer((req,res)=>{
-    res.end("hello from the server!")
+    // res.end("hello from the server!")
     console.log('running a server');
+    console.log(req);
 })
 
 //genret the server

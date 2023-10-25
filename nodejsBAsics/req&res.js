@@ -1,7 +1,7 @@
 const http = require('http')
 const fs  =  require('fs')
 
-const html=fs.readFileSync('../files/index.html','utf-8')
+const html=fs.readFileSync('./index.html','utf-8')
 
 const server  = http.createServer((req,res)=>{
     res.end(html)

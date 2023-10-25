@@ -14,18 +14,3 @@ const server = http.createServer((req,res)=>{
 server.listen(8000,'127.0.0.1',()=>{
     console.log("genrate this server");
 })
-
-
-
-
-
-const http =  require('http')
-
-
-const ser  = http.createServer((req,res)=>{
-    console.log("gernrete server");
-})
-
-ser.listen(1005,'127.0.0.1',()=>{
-    console.log('SERVER IS SHOW');
-})

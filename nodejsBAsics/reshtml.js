@@ -5,6 +5,8 @@ const { response } = require('express');
 
 const html  = fs.readFileSync('./resHtml.html','utf-8')
 
+const product   = JSON.parse(fs.readFileSync('../files/product.json','utf-8'))
+
 const server = http.createServer((req,res)=>{
     let path = req.url;
     if (path =='/' || path.toLocaleLowerCase()==='/home') {
@@ -24,12 +26,10 @@ const server = http.createServer((req,res)=>{
     }
     else if(path.toLocaleLowerCase()==='/product'){
         res.writeHead(200,{
-            'Content-type':'appliaction/json'
+            'Content-type':'application/json'
         });
-        fs.readFile('./product.json','utf-8',(error,data)=>{
-            response.end(data)
-        })
-       
+        res.end("you are in product page");
+        console.log(product);
     }
     else{
         res.writeHead(404);

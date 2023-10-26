@@ -1,5 +1,7 @@
 const http = require('http');
 const fs  =  require('fs');
+const { error } = require('console');
+const { response } = require('express');
 
 const html  = fs.readFileSync('./resHtml.html','utf-8')
 
@@ -19,6 +21,15 @@ const server = http.createServer((req,res)=>{
     else if(path.toLocaleLowerCase()==='/contact'){
         res.writeHead(200);
         res.end(html.replace('{{%content%}}','your are in contact page'))
+    }
+    else if(path.toLocaleLowerCase()==='/product'){
+        res.writeHead(200,{
+            'Content-type':'appliaction/json'
+        });
+        fs.readFile('./product.json','utf-8',(error,data)=>{
+            response.end(data)
+        })
+       
     }
     else{
         res.writeHead(404);

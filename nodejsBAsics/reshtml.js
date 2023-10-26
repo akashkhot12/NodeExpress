@@ -6,7 +6,10 @@ const html  = fs.readFileSync('./resHtml.html','utf-8')
 const server = http.createServer((req,res)=>{
     let path = req.url;
     if (path =='/' || path.toLocaleLowerCase()==='/home') {
-        res.writeHead(200);
+        res.writeHead(200,{
+            'Content-type':'text/html',
+            'my-header': 'hello,world'
+        });
         res.end(html.replace('{{%content%}}','your are in home page'))
     }
     else if(path.toLocaleLowerCase()==='/about'){

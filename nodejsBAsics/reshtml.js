@@ -39,7 +39,7 @@ const server = http.createServer((req,res)=>{
     else if(path.toLocaleLowerCase()==='/product'){
        let productResponse =  html.replace('{{%content%}}',productHtmlArray.join(','))
         res.writeHead(200,{
-            'Content-type':'application/json'
+            'Content-type':'text/html'
         });
         res.end(productResponse);
 

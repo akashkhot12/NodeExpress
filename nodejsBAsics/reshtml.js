@@ -41,7 +41,7 @@ const server = http.createServer((req,res)=>{
             'Content-type':'application/json'
         });
         res.end("you are in product page");
-        console.log(product);
+        console.log(productHtmlArray);
     }
     else{
         res.writeHead(404);

@@ -4,8 +4,8 @@ const { error } = require('console');
 const { response } = require('express');
 
 const html  = fs.readFileSync('./resHtml.html','utf-8')
-
-const product   = JSON.parse(fs.readFileSync('../files/product.json','utf-8'))
+const product   = JSON.parse(fs.readFileSync('../files/product.json','utf-8'));
+const product_list = fs.readFileSync('../templates/product-list.html','utf-8');
 
 const server = http.createServer((req,res)=>{
     let path = req.url;
@@ -18,7 +18,7 @@ const server = http.createServer((req,res)=>{
     }
     else if(path.toLocaleLowerCase()==='/about'){
         res.writeHead(200);
-        res.end(html.replace('{{%content%}}','your are in about page'))
+        res.end(html.replace('{{%content%}}',product_list))
     }
     else if(path.toLocaleLowerCase()==='/contact'){
         res.writeHead(200);

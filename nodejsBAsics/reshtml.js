@@ -37,11 +37,12 @@ const server = http.createServer((req,res)=>{
         res.end(html.replace('{{%content%}}','your are in contact page'))
     }
     else if(path.toLocaleLowerCase()==='/product'){
+       let productResponse =  html.replace('{{%content%}}',productHtmlArray.join(','))
         res.writeHead(200,{
             'Content-type':'application/json'
         });
-        res.end("you are in product page");
-        console.log(productHtmlArray);
+        res.end(productResponse);
+
     }
     else{
         res.writeHead(404);

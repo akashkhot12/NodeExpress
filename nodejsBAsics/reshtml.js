@@ -5,18 +5,18 @@ const { response } = require('express');
 const url = require('url');
 
 const html = fs.readFileSync('./resHtml.html', 'utf-8')
-const product = JSON.parse(fs.readFileSync('../files/product.json', 'utf-8'));
-const product_list = fs.readFileSync('../templates/product-list.html', 'utf-8');
-let productHtmlArray = product.map((prod) => {
-    let output = product_list.replace('{{IMAGES}}', prod.productImage);
-    output = product_list.replace('{{%NAME%}}', prod.name);
-    output = product_list.replace('{{%MODELNAME%}}', prod.modelName);
-    output = product_list.replace('{{%MODELNO%}}', prod.modelNumber);
-    output = product_list.replace('{{%SIZE%}}', prod.size);
-    output = product_list.replace('{{%CAMERA%}}', prod.camera);
-    output = product_list.replace('{{%PRICE%}}', prod.price);
-    output = product_list.replace('{{%COLOR%}}', prod.color);
-    output = product_list.replace('{{%ID%}}', prod.id);
+const products = JSON.parse(fs.readFileSync('../files/product.json', 'utf-8'));
+const product_list = fs.readFileSync('../files/product-list.html', 'utf-8');
+let productHtmlArray = products.map((prod) => {
+    let output = product_list.replace('{{%IMAGES%}}', prod.productImage);
+    output = output.replace('{{%NAME%}}', prod.name);
+    output = output.replace('{{%MODELNAME%}}', prod.modelName);
+    output = output.replace('{{%MODELNO%}}', prod.modelNumber);
+    output = output.replace('{{%SIZE%}}', prod.size);
+    output = output.replace('{{%CAMERA%}}', prod.camera);
+    output = output.replace('{{%PRICE%}}', prod.price);
+    output = output.replace('{{%COLOR%}}', prod.color);
+    output = output.replace('{{%ID%}}', prod.id);
 
     return output;
 })

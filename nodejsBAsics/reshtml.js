@@ -8,14 +8,14 @@ const html = fs.readFileSync('./resHtml.html', 'utf-8')
 const products = JSON.parse(fs.readFileSync('../files/product.json', 'utf-8'));
 const product_list = fs.readFileSync('../files/product-list.html', 'utf-8');
 let productHtmlArray = products.map((prod) => {
-    let output = product_list.replace('{{%IMAGES%}}', prod.productImage);
-    output = output.replace('{{%NAME%}}', prod.name);
-    output = output.replace('{{%MODELNAME%}}', prod.modelName);
-    output = output.replace('{{%MODELNO%}}', prod.modelNumber);
-    output = output.replace('{{%SIZE%}}', prod.size);
-    output = output.replace('{{%CAMERA%}}', prod.camera);
-    output = output.replace('{{%PRICE%}}', prod.price);
-    output = output.replace('{{%COLOR%}}', prod.color);
+    let output = product_list.replace('{{%images%}}', prod.productImage);
+    output = output.replace('{{%name%}}', prod.name);
+    output = output.replace('{{%modename%}}', prod.modeName);
+    output = output.replace('{{%modelno%}}', prod.modelNumber);
+    output = output.replace('{{%size%}}', prod.size);
+    output = output.replace('{{%camera%}}', prod.camera);
+    output = output.replace('{{%price%}}', prod.price);
+    output = output.replace('{{%color%}}', prod.color);
     output = output.replace('{{%ID%}}', prod.id);
 
     return output;
@@ -41,7 +41,7 @@ const server = http.createServer((req, res) => {
     }
     else if (path.toLocaleLowerCase() === '/product') {
         if (!query.id) {
-            let productResponse = html.replace('{{%content%}}', productHtmlArray.join(','))
+            let productResponse = html.replace('{{%content%}}', productHtmlArray.join(','));
             res.writeHead(200, {
                 'Content-type': 'text/html'
             });

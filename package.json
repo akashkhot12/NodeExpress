@@ -1,7 +1,8 @@
 {
   "dependencies": {
     "express": "^4.18.2",
-    "node": "^21.0.0"
+    "node": "^21.0.0",
+    "request": "^2.88.2"
   },
   "name": "nodeexpress",
   "description": "",
